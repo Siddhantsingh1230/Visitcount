@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Count</title>
+    <style type="text/css" media="all">
+      @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #000;
+	color: #fff;
+	font-family: 'Muli', sans-serif;
+	flex-direction: column;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	margin: 0;
+}
+
+h1 {
+	font-size: 70px;
+	margin: 0;
+}
+
+p {
+	color: rgba(255, 255, 255, 0.8);
+	letter-spacing: 2px;
+	margin-bottom: 10px;
+	
+
+}
+.link{
+  
+  background-color: white;
+  width: 70px;
+  padding: 5px;
+  text-align: center;
+  border-radius: 5px;
+ 
+}
+.link a{
+  color: black;
+  font-weight: bold;
+   text-decoration: none;
+   
+}
+.link:hover{
+  opacity: 0.7;
+  color: grey;
+}
+.header{
+  display: flex;
+  justify-content: center;
+}
+.header h1{
+  color: white;
+  position: fixed;
+  top: 40px;
+  
+  font-size: 10vw;
+}
+    </style>
+  </head>
+  <body>
+ <div class="header">
+   <h1>Siddhant Singh</h1>
+ </div>
+    <p>This page was visited</p>
+    <h1 id="count">0</h1>
+    <p>Times</p>
+    <p class="link"><a href="https://www.linkedin.com/in/siddhantsingh1230">Visit</a></p>
+        <script type="text/javascript" charset="utf-8">
+      const countEl = document.getElementById('count');
+
+updateVisitCount();
+
+function updateVisitCount() {
+	fetch('https://api.countapi.xyz/hit/countbyss')
+	.then(res => res.json())
+	.then(res => {
+		countEl.innerHTML = res.value;
+	})
+}
+    </script>
+  </body>
+</html>
